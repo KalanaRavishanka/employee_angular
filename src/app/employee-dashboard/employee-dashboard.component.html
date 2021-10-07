@@ -1,0 +1,154 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Employee</a>
+    <div class="d-flex">
+      <button
+        class="btn btn-success"
+        type="submit"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        (click)="clickAddEmployee()"
+      >
+        Add Employee
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+          <th scope="col">ID</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Telephone</th>
+        <th scope="col">Email</th>
+        <!-- <th scope="col">MaritalStatus</th> -->
+        <!-- <th scope="col">City Id</th>
+        <th scope="col">Remark</th> -->
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of employeeData">
+        <td>{{row.id}}</td>
+        <td>{{row.firstName}}</td>
+        <td>{{row.lastName}}</td>
+        <td>{{row.dob}}</td>
+        <td>{{row.telephone}}</td>
+        <td>{{row.email}}</td>
+        <!-- <td>Mark</td>
+        <td>Otto</td> -->
+        <td>
+          <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="onEdit(row)">Edit</button>
+          <button class="btn btn-danger mx-3" (click)="deleteEmployee(row)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Employee Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup] = "formValue">
+          <div class="mb-3">
+            <label for="exampleInputFirstName" class="form-label"
+              >FirstName</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputFirstName"
+              formControlName="firstName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputLastName" class="form-label"
+              >LastName</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputLastName"
+              formControlName="lastName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputDOB" class="form-label"
+              >Date Of Birth</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="exampleInputDOB"
+              formControlName="dob"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputTel" class="form-label"
+              >Telephone</label
+            >
+            <input
+              type="tel"
+              class="form-control"
+              id="exampleInputTel"
+              formControlName="telephone"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              formControlName="email"
+            />
+          </div>
+          
+          <!-- <div class="mb-3">
+            <label for="disabledSelect" class="form-label"
+              >Maritial State</label
+            >
+            <select class="form-select">
+                <option selected disabled>Open this select menu</option>
+              <option>1</option>
+              <option>0</option>
+            </select>
+            <div class="form-text">
+              1 for married || 0 for unmarried
+            </div>
+          </div> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="postEmployeeDetails()">Add</button>
+        <button *ngIf="showUpdate" type="button" class="btn btn-primary" (click)="updateEmployeeDetails()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

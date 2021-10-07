@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "Kalana ",
+      "lastName": "Ravishanka",
+      "dob": "2021-10-08",
+      "telephone": "0774289988",
+      "email": "ultimatekalana@gmail.com"
+    },
+    {
+      "id": 4,
+      "firstName": "Kasun ",
+      "lastName": "Chinthanaka",
+      "dob": "2021-10-01",
+      "telephone": "0775058299",
+      "email": "kc@gmail.com"
+    },
+    {
+      "id": 5,
+      "firstName": "akila",
+      "lastName": "chathuranga",
+      "dob": "2021-10-08",
+      "telephone": "0112456789",
+      "email": "ac@yahoo.com"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
